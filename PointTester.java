@@ -8,6 +8,6 @@ public class PointTester {
     double y = point.getY();
     point.setLocation(y, x);
     Point newPoint = new Point(point);
-    assert point == newPoint;
+    assert point.equals(newPoint);
   }
 }
