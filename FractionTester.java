@@ -7,6 +7,8 @@ public class FractionTester {
         copyTest();
         addTest();
         subTest();
+        mulTest();
+        divTest();
         simplifyTest();
     }
 
@@ -38,6 +40,18 @@ public class FractionTester {
         Fraction f1 = new Fraction(3, 4);
         Fraction f2 = new Fraction(2, 4);
         assert Fraction.sub(f1, f2).equals(new Fraction(1, 4));
+    }
+
+    static void mulTest() {
+        Fraction f1 = new Fraction(3, 4);
+        Fraction f2 = new Fraction(2, 4);
+        assert Fraction.mul(f1, f2).equals(new Fraction(6, 16));
+    }
+
+    static void divTest() {
+        Fraction f1 = new Fraction(3, 4);
+        Fraction f2 = new Fraction(2, 4);
+        assert Fraction.div(f1, f2).equals(new Fraction(12, 8));
     }
 
     static void simplifyTest() {

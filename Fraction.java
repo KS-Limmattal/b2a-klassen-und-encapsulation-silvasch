@@ -30,13 +30,30 @@ public class Fraction {
     }
 
     public void sub(Fraction f) {
-        f.setNumerator(f.getNumerator() * -1);   
+        this.setNumerator(this.numerator * -1);
         this.add(f);
     }
 
     public static Fraction sub(Fraction f1, Fraction f2) {
-        f2.setNumerator(f2.getNumerator() * -1);
-        return Fraction.add(f1, f2);
+        return new Fraction(f1.numerator * f2.denominator - f1.denominator * f2.numerator, f1.denominator * f2.denominator);
+    }
+
+    public void mul(Fraction f) {
+        this.setNumerator(this.numerator * f.numerator);
+        this.setDenominator(this.denominator * f.denominator);
+    }
+
+    public static Fraction mul(Fraction f1, Fraction f2) {
+        return new Fraction(f1.numerator * f2.numerator, f2.denominator * f2.denominator);
+    }
+
+    public void div(Fraction f) {
+        this.setNumerator(this.numerator * f.denominator);
+        this.setDenominator(this.denominator * f.numerator);
+    }
+
+    public static Fraction div(Fraction f1, Fraction f2) {
+        return new Fraction(f1.numerator * f2.denominator, f2.numerator * f1.denominator);
     }
    
     public boolean equals(Fraction f) {
