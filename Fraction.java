@@ -1,6 +1,8 @@
 public class Fraction {
     static int numberOfFractions;
-    private int numerator, denominator;
+
+    private int numerator;
+    private int denominator;
 
     public Fraction(int numerator, int denominator) throws ArithmeticException {
         if (denominator == 0) {
@@ -67,12 +69,7 @@ public class Fraction {
     }
 
     public int gcd() {
-        int smallerNumber = 0;
-        if (this.numerator < this.denominator) {
-            smallerNumber = this.numerator;
-        } else {
-            smallerNumber = this.denominator;
-        }
+        int smallerNumber = Math.min(this.numerator, this.denominator);
 
         for (int i = smallerNumber; i > 1; i--) {
             if (this.numerator % i == 0 && this.denominator % i == 0) {
