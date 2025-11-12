@@ -1,21 +1,67 @@
 public class FractionTester {
+    final double PI = 3.14159;
+    
     public static void main(String[] args) {
-        Fraction f = new Fraction();
-        // Der folgende Code funktioniert nur, wenn die Felder von Fraction nicht privat sind:
-        f.numerator = 12;
-        f.denominator = 0;
-        System.out.println(f.numerator + "/" + f.denominator);
-        
-        // toString():
-
-        // Encapsulation, Getter und Setter:
-
-        // Copy-Konstruktor und equals():
-        
-        // Klassen- und Instanzenmethoden:
-
-        // statische Variablen:
-
+        toStringTest();
+        getSetTest();
+        copyTest();
+        addTest();
+        subTest();
+        mulTest();
+        divTest();
+        simplifyTest();
     }
 
+    static void toStringTest() {
+        Fraction f = new Fraction(3, 4);
+        assert f.toString().equals("3/4");
+    }
+
+    static void getSetTest() {
+        Fraction f = new Fraction(3, 4);
+        f.setNumerator(1);
+        f.setDenominator(2);
+        assert f.equals(new Fraction(1, 2));
+    }
+
+    static void copyTest() {
+        Fraction f1 = new Fraction();
+        Fraction f2 = new Fraction(f1);
+        assert f1.equals(f2);
+    }
+
+    static void addTest() {
+        Fraction f1 = new Fraction(2, 3);
+        Fraction f2 = new Fraction(3, 4);
+        assert Fraction.add(f1, f2).equals(new Fraction(17, 12));
+    }
+
+    static void subTest() {
+        Fraction f1 = new Fraction(3, 4);
+        Fraction f2 = new Fraction(2, 4);
+        assert Fraction.sub(f1, f2).equals(new Fraction(1, 4));
+    }
+
+    static void mulTest() {
+        Fraction f1 = new Fraction(3, 4);
+        Fraction f2 = new Fraction(2, 4);
+        assert Fraction.mul(f1, f2).equals(new Fraction(6, 16));
+    }
+
+    static void divTest() {
+        Fraction f1 = new Fraction(3, 4);
+        Fraction f2 = new Fraction(2, 4);
+        assert Fraction.div(f1, f2).equals(new Fraction(12, 8));
+    }
+
+    static void simplifyTest() {
+        Fraction f1 = new Fraction(6, 9);
+        Fraction f2 = new Fraction(16, 8);
+
+        f1.simplify();
+        f2.simplify();
+
+        assert f1.equals(new Fraction(2, 3));
+        assert f2.equals(new Fraction(2, 1));
+    }
 }
